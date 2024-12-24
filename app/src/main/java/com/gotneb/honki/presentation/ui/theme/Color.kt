@@ -1,4 +1,4 @@
-package com.gotneb.honki.ui.theme
+package com.gotneb.honki.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
