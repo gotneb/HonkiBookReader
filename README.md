@@ -1,4 +1,4 @@
-## ✨ Book Raeder - Clean Architeture using MVVM
+## ✨ Book Reader - Clean Architeture using MVVM
 <p align="center">
   <img src="app/src/main/assets/banner.png">
 </p>
