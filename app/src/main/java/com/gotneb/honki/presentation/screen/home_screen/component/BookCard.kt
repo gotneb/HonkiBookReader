@@ -18,10 +18,13 @@ import coil3.compose.AsyncImage
 import com.gotneb.honki.domain.model.BookModel
 
 @Composable
-fun BookCard(book: BookModel) {
+fun BookCard(
+    book: BookModel,
+    modifier: Modifier = Modifier,
+) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(20.dp),
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth()
     ) {
         AsyncImage(
             model = book.formats.image,

@@ -13,7 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import com.gotneb.honki.domain.util.HomeScreenRoute
 import com.gotneb.honki.domain.util.ReaderScreenRoute
 import com.gotneb.honki.presentation.screen.home_screen.HomeScreenViewModel
-import com.gotneb.honki.presentation.screen.home_screen.SearchScreen
+import com.gotneb.honki.presentation.screen.home_screen.HomeScreen
 import com.gotneb.honki.presentation.screen.reader_screen.ReaderScreen
 import com.gotneb.honki.presentation.screen.reader_screen.ReaderScreenViewModel
 import com.gotneb.honki.presentation.ui.theme.HonkiBookReaderTheme
@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
                         val viewModel = hiltViewModel<HomeScreenViewModel>()
                         val state by viewModel.state.collectAsStateWithLifecycle()
 
-                        SearchScreen(
+                        HomeScreen(
                             state = state,
                             onBookClick = { bookHtmlUrl ->
                                 navController.navigate(ReaderScreenRoute(bookHtmlUrl))
@@ -50,9 +50,7 @@ class MainActivity : ComponentActivity() {
                         val viewModel = hiltViewModel<ReaderScreenViewModel>()
                         val state by viewModel.state.collectAsStateWithLifecycle()
 
-                        ReaderScreen(
-                            state = state
-                        )
+                        ReaderScreen(state = state)
                     }
                 }
             }

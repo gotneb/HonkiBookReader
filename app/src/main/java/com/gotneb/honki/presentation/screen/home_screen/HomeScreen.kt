@@ -24,10 +24,11 @@ import androidx.compose.ui.unit.dp
 import com.gotneb.honki.presentation.screen.home_screen.component.BookCard
 
 @Composable
-fun SearchScreen(
+fun HomeScreen(
     state: HomeScreenState,
+    onBookClick: (String?) -> Unit,
     onValueChange: (String) -> Unit,
-    onSearchCLick: () -> Unit,
+    onSearchClick: () -> Unit,
 ) {
     Scaffold { innerPadding ->
         Column(
@@ -48,7 +49,7 @@ fun SearchScreen(
                         contentDescription = null,
                         modifier = Modifier
                             .clickable {
-                                onSearchCLick()
+                                onSearchClick()
                             }
                     )
                 },
@@ -77,8 +78,11 @@ fun SearchScreen(
                     items(
                         state.books,
                         key = { it.id }
-                    ) {
-                        BookCard(it)
+                    ) { book ->
+                        BookCard(
+                            book = book,
+                            modifier = Modifier.clickable { onBookClick(book.formats.html) }
+                        )
                     }
                 }
             }
