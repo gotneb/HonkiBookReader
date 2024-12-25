@@ -53,8 +53,8 @@ fun ReaderScreen(
 private fun getTextStyleForTag(tag: String): TextStyle {
     return when (tag) {
         "h1" -> TextStyle(fontSize = 28.sp, color = Color.Black, fontWeight = FontWeight.Bold)
-        "h2" -> TextStyle(fontSize = 22.sp, color = Color.Black)
-        "p" -> TextStyle(fontSize = 16.sp, color = Color.Gray)
-        else -> TextStyle(fontSize = 14.sp, color = Color.Gray)
+        "h2" -> TextStyle(fontSize = 22.sp, color = Color.Black, fontWeight = FontWeight.SemiBold)
+        "p" -> TextStyle(fontSize = 16.sp, color = Color.DarkGray)
+        else -> TextStyle(fontSize = 14.sp, color = Color.DarkGray)
     }
 }
