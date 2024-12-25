@@ -6,4 +6,6 @@ import com.skydoves.sandwich.ApiResponse
 
 interface ApiRepository {
     suspend fun searchBook(title: String, language: String): ApiResponse<BookResponseModel>
+
+    suspend fun fetchContent(url: String): ApiResponse<String>
 }
