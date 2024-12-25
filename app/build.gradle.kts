@@ -43,6 +43,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.jsoup)
+
     // Timber
     implementation(libs.timber)
 
