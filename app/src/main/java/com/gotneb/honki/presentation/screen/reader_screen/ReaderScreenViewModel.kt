@@ -18,6 +18,11 @@ import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import javax.inject.Inject
 
+data class StyledText(
+    val tag: String,
+    val text: String,
+)
+
 @HiltViewModel
 class ReaderScreenViewModel @Inject constructor(
     private val repository: ApiRepository,
@@ -60,17 +65,15 @@ class ReaderScreenViewModel @Inject constructor(
         }
     }
 
-    private fun processHtml(html: String): String {
-        val preprocessedHtml = html
-            .replace("<br>", "\n")
-            .replace("<br/>", "\n")
-
-        return Jsoup
-            .parse(preprocessedHtml)
+    private fun processHtml(html: String): List<StyledText> {
+        val document = Jsoup.parse(html)
+        return document
             .select("h1, h2, h3, h4, h5, h6, p")
-            .joinToString("\n") { text ->
-                // Extra space at the beginning of each tag
-                "\n${text.text()}"
+            .map {
+                StyledText(
+                    tag = it.tagName(),
+                    text = "\n${it.text()}",
+                )
             }
     }
 }
