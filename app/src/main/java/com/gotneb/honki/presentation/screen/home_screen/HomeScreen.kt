@@ -43,6 +43,8 @@ fun HomeScreen(
                 placeholder = {
                     Text("Search...")
                 },
+                singleLine = true,
+                maxLines = 1,
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Filled.Search,
